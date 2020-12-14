@@ -65945,8 +65945,21 @@ var CustomerComponent = /*#__PURE__*/function (_Component) {
       this.getData();
     }
   }, {
+    key: "deleteHandler",
+    value: function deleteHandler(customer) {
+      var _this3 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a["delete"]('/api/customers/' + customer.id).then(function (response) {
+        _this3.getData();
+      })["catch"](function (e) {
+        console.log(e);
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this4 = this;
+
       var customers = this.state.customers;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "customer"
@@ -66039,6 +66052,7 @@ var CustomerComponent = /*#__PURE__*/function (_Component) {
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fas fa-edit"
         })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: _this4.deleteHandler.bind(_this4, customer),
           type: "button",
           className: "btn btn-danger btn-sm"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
